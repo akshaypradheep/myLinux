@@ -1,0 +1,67 @@
+INSTALLING
+-----------------------------------------------
+pip3 install --upgrade setuptools
+pip3 install --upgrade gcloud
+pip3 install pyrebase
+
+USING
+----------------------------------------------
+
+
+CONFIG
+~~~~~~~~~~
+import pyrebase
+
+config = {
+  "apiKey": "apiKey",
+  "authDomain": "projectId.firebaseapp.com",
+  "databaseURL": "https://databaseName.firebaseio.com",
+  "storageBucket": "projectId.appspot.com"
+}
+firebase = pyrebase.initialize_app(config)
+
+PUSH
+~~~~~~~~~~~~
+data = {"name": "Mortimer 'Morty' Smith"}
+db.child("users").push(data)
+
+SET
+~~~~~~~~~~~~~
+data = {"name": "Mortimer 'Morty' Smith"}
+db.child("users").push(data)
+
+UPDATE
+~~~~~~~~~~~
+db.child("users").child("Morty").update({"name": "Mortiest Morty"})
+
+REMOVE
+~~~~~~~
+db.child("users").child("Morty").remove()
+
+_________________
+Retrieve Data
+~~~~~~~~~~~~~~~~
+VAL
+~~~~
+users = db.child("users").get()
+print(users.val()) # {"Morty": {"name": "Mortimer 'Morty' Smith"}, "Rick": {"name": "Rick Sanchez"}}
+
+KEY
+~~~~~
+user = db.child("users").get()
+print(user.key()) # users
+
+EACH
+~~~~~~
+Returns a list of objects on each of which you can call val() and key().
+
+all_users = db.child("users").get()
+for user in all_users.each():
+    print(user.key()) # Morty
+    print(user.val()) # {name": "Mortimer 'Morty' Smith"}
+
+GET
+~~~~~
+all_users = db.child("users").get()
+
+
