@@ -1,0 +1,15 @@
+FOR INSTALLING
+--------------------------------------------------------
+
+sudo apt-get install python3-pyqt4
+sudo apt-get install python-qt4 qt4-designer
+sudo apt install pyqt4-dev-tools
+
+
+FOR USING
+---------------------------------------------------------
+
+pyuic4 filename.ui
+
+
+
